@@ -20,6 +20,6 @@
     "mongoose": "^8.16.1",
     "multer": "^2.0.1",
     "nodemon": "^3.1.10",
-    "pdf-parse": "^1.1.1"
+    "pdfjs-dist": "^5.3.31"
   }
 }

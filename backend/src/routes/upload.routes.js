@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { uploadDocument } from "../../controller/upload.controller.js";
-import { upload } from "../middleware/multer";
+import { uploadDocument } from "../controller/upload.controller.js";
+import { upload } from "../middleware/multer.js";
+import { verifyToken } from "../middleware/auth.js";
 
 const router = Router()
 
-router.route("/").post(upload.single("file").uploadDocument)
+router.route("/").post(verifyToken,upload.single("file"),uploadDocument)
 
 export default router
