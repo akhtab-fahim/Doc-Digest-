@@ -9,8 +9,10 @@ app.use(express.urlencoded({extended:true}))
 
 
 import userRouter from "./routes/user.routes.js"
+import uploadRouter from "./routes/upload.routes.js"
 
 app.use("/auth",userRouter)
+app.use("/upload",uploadRouter)
 
 connectDB()
 .then(()=>{
