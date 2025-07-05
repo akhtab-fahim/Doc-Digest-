@@ -5,6 +5,8 @@ import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 
 
 export const extractText = async (filePath) => {
+  console.log(filePath);
+  
   try {
     // Check if file exists=
     if (!fs.existsSync(filePath)) {
@@ -34,8 +36,9 @@ export const extractText = async (filePath) => {
     if (ext === ".txt") {
       return fs.readFileSync(filePath, "utf8");
     }
+
+    throw new Error(`Unsupported file type :: extractText.js`);
     
-    throw new Error(`Unsupported file type: ${ext}`);
   } catch (error) {
     console.error(`Error extracting text: ${error.message}`);
     throw error;

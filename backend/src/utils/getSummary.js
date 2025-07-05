@@ -29,11 +29,11 @@ export const getSummary = async(text)=>{
 if(!response.ok){
     throw new Error("API error");
 }
-console.log(response);
+//console.log(response);
 
 const data = await response.json()
-console.log(data);
-
-return data;
+//console.log(data);
+const summary = data.choices[0].message.content;
+return summary;
 
 }
