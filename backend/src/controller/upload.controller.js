@@ -37,4 +37,40 @@ const uploadDocument = async(req,res)=>{
     }
 }
 
-export {uploadDocument}
+const getDocument = async(req,res)=>{
+    const {documentId} = req.params
+    const document = await Document.findById(documentId)
+
+    if(!document){
+        return res.status(400).json({message : "No document corresponding to documentId"})
+    }
+
+    res.status(200).json({document,message : "Document fetched"})
+
+}
+
+const getAllDocument = async(req,res)=>{
+    const documents = await Document.find({ userID: req.user.id }).sort({ createdAt: -1 });
+
+
+    if(!documents || documents.length == 0){
+        return res.status(400).json({message : "No document corresponding to documentId"})
+    }
+
+    res.status(200).json({documents,message : "All Documents fetched"})
+} 
+
+const deleteDocument = async(req,res)=>{
+    const {documentId} = req.params
+    const document = await Document.findById(documentId)
+
+    if(!document){
+        return res.status(400).json({message : "No document corresponding to documentId"})
+    }
+
+    await Document.deleteOne(document._id)
+
+    res.status(200).json({message : "Document deleted"})
+}
+
+export {uploadDocument,getAllDocument,getDocument,deleteDocument}
