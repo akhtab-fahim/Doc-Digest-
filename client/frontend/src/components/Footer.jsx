@@ -58,20 +58,20 @@ function Footer() {
 
             <div>
               <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase mb-4">
-                Legal
+                Links
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 flex gap-x-8">
                 <li>
-                  <a href="#" className="text-gray-500 hover:text-green-600 text-sm">
-                    Privacy Policy
-                  </a>
+                  <a href="https://github.com/akhtab-fahim"><img  src="./public/github.png" alt="Github" className="h-6 animate-wiggle" /></a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-500 hover:text-green-600 text-sm">
-                    Terms of Service
-                  </a>
+                  <a href="https://www.instagram.com/akhtab_fahim"/><img src="./public/insta.png" alt="Instagram" className="h-6" /><a/>
+                </li>
+                <li>
+                <a href="https://x.com/AkhtabMd85479"><img src="./public/twitter.png" alt="Twitter" className="h-6 pr-12" /></a>
                 </li>
               </ul>
+              <h2 className='text-sm font-semibold text-gray-600 mt-2  mb-4'><a href="https://github.com/akhtab-fahim/Doc-Digest-">Source Code</a></h2>
             </div>
           </div>
         </div>
