@@ -29,7 +29,7 @@ export const chatWithAi = async(question,context)=>{
         {
         "role": "user",
         "content": `What will be the answer to this question: ${question}
-                    Answer only using this context: ${context}`
+                    Answer using this context: ${context} also try to anwer beside the context if you can`
         }]
     })
 

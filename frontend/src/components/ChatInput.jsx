@@ -21,7 +21,7 @@ function ChatInput({ question, setQuestion, onSend, isDisabled }) {
         />
         <button 
           type="submit"
-          className="bg-green-600 text-white px-6 py-3 rounded-r-md hover:bg-green-700"
+          className="bg-green-600 text-white px-6 py-3 rounded-r-md border-2 hover:bg-green-700"
           disabled={isDisabled || !question.trim()}
         >
           Send

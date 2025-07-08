@@ -38,23 +38,6 @@ function Footer() {
               </ul>
             </div>
 
-            <div>
-              <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase mb-4">
-                Support
-              </h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-gray-500 hover:text-green-600 text-sm">
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-500 hover:text-green-600 text-sm">
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-            </div>
 
             <div>
               <h3 className="text-sm font-semibold text-gray-600 tracking-wider uppercase mb-4">
