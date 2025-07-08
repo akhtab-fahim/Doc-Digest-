@@ -4,7 +4,7 @@ import axios from 'axios';
 import DocumentHeader from '../components/DocumentHeader';
 import ChatContent from '../components/ChatContent';
 import ChatInput from '../components/ChatInput';
-import ChatHistory from '../components/Chathistory';
+import ChatHistory from "../components/ChatHistory"
 
 function Chat() {
   const [selectedDocument, setSelectedDocument] = useState(null);
