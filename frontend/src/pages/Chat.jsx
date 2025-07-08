@@ -20,7 +20,7 @@ function Chat() {
       const token = localStorage.getItem('accessToken');
       
       // Get document details
-      const docResponse = await axios.get(`http://localhost:5000/upload/getDoc/${chat.documentID}`, {
+      const docResponse = await axios.get(`https://doc-digest-gsgq.vercel.app/upload/getDoc/${chat.documentID}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -57,7 +57,7 @@ function Chat() {
         try {
           const token = localStorage.getItem('accessToken');
           // Update URL to match your backend route
-          const response = await axios.post('http://localhost:5000/upload', formData, {
+          const response = await axios.post('https://doc-digest-gsgq.vercel.app/upload', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               Authorization: `Bearer ${token}`
@@ -101,7 +101,7 @@ function Chat() {
       };
       
       // Send the question to the API
-      const response = await axios.post(`http://localhost:5000/chat/${selectedDocument._id}`, requestData, {
+      const response = await axios.post(`https://doc-digest-gsgq.vercel.app/chat/${selectedDocument._id}`, requestData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'

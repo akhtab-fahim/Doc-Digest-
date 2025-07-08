@@ -13,7 +13,7 @@ function ChatHistory({ onChatSelect }) {
         // Get token from localStorage
         const token = localStorage.getItem('accessToken');
         
-        const response = await axios.get('http://localhost:5000/chat/getUserChats', {
+        const response = await axios.get('https://doc-digest-gsgq.vercel.app/chat/getUserChats', {
           headers: {
             Authorization: `Bearer ${token}`
           }

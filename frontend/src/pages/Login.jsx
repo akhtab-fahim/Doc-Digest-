@@ -15,7 +15,7 @@ function Login() {
     setLoading(true)
     
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', {
+      const response = await axios.post('https://doc-digest-gsgq.vercel.app/auth/login', {
         email,
         password
       })
