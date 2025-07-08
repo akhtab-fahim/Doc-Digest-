@@ -4,12 +4,19 @@ import cors from "cors";
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://doc-digest-ten.vercel.app"
+];
+
 app.use(cors({
-    origin: [
-        "http://localhost:3000",                // local frontend
-        "https://doc-digest-ten.vercel.app"     // deployed frontend
-    ],
-    credentials: true   // add this if your frontend makes requests with credentials like cookies or Authorization headers
+  origin: allowedOrigins,
+  credentials: true
+}));
+
+app.options("*", cors({
+  origin: allowedOrigins,
+  credentials: true
 }));
 
 app.use(express.json());
@@ -24,11 +31,11 @@ app.use("/upload", uploadRouter);
 app.use("/chat", chatRouter);
 
 connectDB()
-.then(() => {
+  .then(() => {
     app.listen(5000, () => {
-        console.log("Server running on port 5000");
+      console.log("Server running on port 5000");
     });
-})
-.catch((err) => {
+  })
+  .catch((err) => {
     console.log(err);
-});
+  });
