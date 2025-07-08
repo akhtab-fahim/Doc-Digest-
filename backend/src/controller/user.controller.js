@@ -4,6 +4,10 @@ import bcrypt from "bcrypt";
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
+    
+    if(!email || !password){
+        return res.status(400).json({message : "All fields are required"})
+    }
 
     const isUserExisted = await User.findOne({ email });
 
@@ -25,7 +29,7 @@ const loginUser = async (req, res) => {
             expiresIn: process.env.ACCESS_TOKEN_EXPIRY
         }
     );
-        const user = await User.findById(isUserExisted._id);
+        const user = await User.findById(isUserExisted._id).select("-password");
         return res.status(200).json({ accessToken, user, message: "Login successful." });
     }
 
@@ -34,6 +38,10 @@ const loginUser = async (req, res) => {
 
 const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
+
+    if(!name || !email || !password){
+        return res.status(400).json({message : "All fields are required"})
+    }
 
     const isUserExisted = await User.findOne({
         $or: [
@@ -46,11 +54,13 @@ const registerUser = async (req, res) => {
         return res.status(409).json({ message: "User already exists. Please log in." });
     }
 
-    const user = await User.create({
+    const newUser = await User.create({
         name,
         email,
         password
     });
+
+    const user = await User.findById(newUser._id).select("-password");
 
     if (!user) {
         return res.status(500).json({ message: "User registration failed." });
