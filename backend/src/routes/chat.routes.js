@@ -5,7 +5,7 @@ import { chatWithDocument, deleteChat, getAllDocChats, getAllUserChats } from ".
 
 const router = Router()
 
-router.route("/:documentId").post(verifyToken,chatWithDocument)
+router.route("/chatWithDoc/:documentId").post(verifyToken,chatWithDocument)
 
 router.route("/getDocChats/:documentId").get(verifyToken,getAllDocChats)
 
